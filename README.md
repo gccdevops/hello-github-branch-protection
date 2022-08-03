@@ -103,7 +103,7 @@ git config user.signingkey 6EE08F0DF058A89B6526BF30F7981FB9AEAD30A7
 git config commit.gpgsign true
 ```
 
-- fix issue 1
+- fix issue 1 - Linux 
 ```text
 gpg: signing failed: Inappropriate ioctl for device
 gpg: [stdin]: clear-sign failed: Inappropriate ioctl for device
@@ -131,4 +131,23 @@ JFoMD5MdSTkhwla7+rg3xIeLV5/KW1HT7M0Ip13N+6xm/zwbVVDx6OiuQhRh6DO4
 -----END PGP SIGNATURE-----
 ubuntu@ip-172-31-30-60:~$
 
+```
+- fix issue 2 - Windows  
+```text
+PS C:\Users\CQiao\repos\learn-groovy> git commit -m 'add 123'
+gpg: skipped "6EE08F0DF058A89B6526BF30F7981FB9AEAD30A7": No secret key
+gpg: signing failed: No secret key
+error: gpg failed to sign the data
+fatal: failed to write commit object
+
+windows 需要配置gpg程序
+下载 https://www.gpg4win.org/thanks-for-download.html
+
+配置git 
+PS C:\Users\CQiao\repos\learn-groovy> git config gpg.program "C:\Program Files (x86)\GnuPG\bin\gpg.exe"
+
+PS C:\Users\CQiao\repos\learn-groovy> git commit -m 'add 123'
+[main 61555b9] add 123
+ 1 file changed, 1 insertion(+)
+ create mode 100644 123.txt
 ```
